@@ -1,0 +1,68 @@
+digraph {
+	Season [label="Season
+Attributes:
+name
+weather_pattern
+start_date
+end_date
+Methods:
+change_weather()
+trigger_events()"]
+	Festival [label="Festival
+Attributes:
+name
+season
+start_date
+end_date
+activities
+Methods:
+start_festival()
+end_festival()"]
+	Activity [label="Activity
+Attributes:
+name
+location
+participants
+rewards
+Methods:
+start_activity()
+end_activity()"]
+	WeatherPattern [label="WeatherPattern
+Attributes:
+type
+temperature_range
+precipitation
+Methods:
+generate_weather()
+apply_effects()"]
+	Player [label="Player
+Attributes:
+name
+age
+inventory
+current_activity
+Methods:
+participate_in_activity()
+collect_rewards()"]
+	Reward [label="Reward
+Attributes:
+type
+value
+Methods:
+assign_to_player()"]
+	Location [label="Location
+Attributes:
+name
+type
+coordinates
+Methods:
+host_activity()
+get_weather()"]
+	Season -> Festival [label=contains]
+	Festival -> Activity [label=includes]
+	Season -> WeatherPattern [label=has]
+	Activity -> Player [label=involves]
+	Player -> Reward [label=earns]
+	Activity -> Location [label="occurs at"]
+	Location -> WeatherPattern [label=experiences]
+}
